@@ -1,5 +1,11 @@
+---
+import Header from '../components/Header.astro';
+import '@fontsource/onest/400.css';
+import '@fontsource/onest/600.css';
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -8,15 +14,27 @@
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Header />
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+<style is:global>
+	:root {
+		color-scheme: light dark;
 	}
+
+	html {
+		background-color: #131111;
+		font-family: system-ui, sans-serif;
+		line-height: 1.5;
+	}
+
+	body {
+		font-family: 'Onest', sans-serif;
+		display: flex;
+		flex-direction: column;	
+		height: 100vh;
+	}
+	
 </style>
