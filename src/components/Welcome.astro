@@ -9,6 +9,8 @@ import Experience from "./Experience.astro";
 import SectionContainer from "./SectionContainer.astro";
 import Code from "../icons/Code.astro";
 import Project from "./Project.astro";
+import SobreMi from "./SobreMi.astro";
+import Skills from "./Skills.astro";
 ---
 
 <main>
@@ -50,6 +52,16 @@ import Project from "./Project.astro";
             </SocialPill>
             
         </nav>
+    </SectionContainer>
+
+    <SectionContainer id="sobre-mi">
+        <h2 class="text-2xl font-semibold mb-6">Sobre mí</h2>
+        <SobreMi />
+    </SectionContainer>
+
+    <SectionContainer id="habilidades" class="!py-[2.25rem] sm:!py-[3.75rem]">
+        <h2 class="text-2xl font-semibold mb-6">Habilidades</h2>
+        <Skills />
     </SectionContainer>
 
     <SectionContainer id="experiencia" class="!py-[2.25rem] sm:!py-[3.75rem]">

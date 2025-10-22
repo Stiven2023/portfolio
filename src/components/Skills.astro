@@ -1,0 +1,23 @@
+---
+const SKILLS: { group: string; items: string[] }[] = [
+  { group: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Tailwind'] },
+  { group: 'Backend', items: ['Node.js', 'TypeScript', 'Express'] },
+  { group: 'Datos', items: ['MongoDB'] },
+  { group: 'Herramientas', items: ['Git', 'GitHub', 'Astro'] },
+  { group: 'Foco actual', items: ['Fundamentos de IA', 'Integración de modelos en productos'] },
+];
+---
+
+<div class="grid gap-6 sm:grid-cols-2">
+  {SKILLS.map((s) => (
+    <section class="rounded-xl border border-white/10 bg-white/5 p-4">
+      <h3 class="text-white font-semibold mb-3">{s.group}</h3>
+      <ul class="flex flex-wrap gap-2">
+        {s.items.map((it) => (
+          <li class="text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">{it}</li>
+        ))}
+      </ul>
+    </section>
+  ))}
+  
+</div>
