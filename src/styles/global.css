@@ -1,1 +1,19 @@
 @import "tailwindcss";
+
+/* Estilos globales trasladados desde Layout.astro */
+:root {
+	color-scheme: light dark;
+}
+
+html {
+	background-color: #131111;
+	font-family: system-ui, sans-serif;
+	line-height: 1.5;
+}
+
+body {
+	font-family: 'Onest', sans-serif;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}

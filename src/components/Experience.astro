@@ -1,0 +1,33 @@
+---
+import ExperienceItem from './ExperienceItem.astro';
+
+const EXPERIENCE = [
+  {
+    date: 'Enero 2025 - Julio 2025',
+    title: 'Desarrollador de software Full Stack — VIOMAR SOLUCIONES S.A.S',
+    description:
+      'Diseñé e implementé desde cero VIO, una solución web para la gestión de pedidos, inventario y producción. Automatizó procesos clave, redujo errores humanos y mejoró significativamente la eficiencia operativa.',
+  },
+  {     
+    date: '2025',
+    title: 'Desarrollador de software Full Stack — Distribuciones (freelance)',
+    description:
+      'Diseñé y estoy finalizando un sistema e-commerce para una distribuidora de dulces. Incluye gestión de inventario, pedidos, facturación y envíos. Automatiza procesos clave y mejora la eficiencia operativa y comercial.',
+  },
+];
+---
+
+
+<ol class="relative lg:border-s lg:border-gray-200 dark:lg:border-gray-700 space-y-8 lg:space-y-0 lg:pl-6 max-w-3xl mx-auto px-2 sm:px-0">
+  {
+    EXPERIENCE.map((experience, idx) => (
+      <li class="mb-6 lg:mb-10 lg:ms-4">
+        <ExperienceItem
+          {...experience}
+          index={idx}
+        />
+      </li>
+    ))
+  }
+</ol>
+

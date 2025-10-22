@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import '@fontsource/onest/400.css';
 import '@fontsource/onest/600.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -11,11 +12,13 @@ import '@fontsource/onest/600.css';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Portfolio Stiven Aguirre - Desarrollador y Programador de Software</title>
+		<meta name="description" content="Contrata a Stiven Aguirre, un desarrollador de software con experiencia en la creación de aplicaciones web y soluciones innovadoras.	" />
 	</head>
 	<body>
 		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -28,6 +31,7 @@ import '@fontsource/onest/600.css';
 		background-color: #131111;
 		font-family: system-ui, sans-serif;
 		line-height: 1.5;
+		scroll-behavior: smooth;
 	}
 
 	body {
@@ -35,6 +39,12 @@ import '@fontsource/onest/600.css';
 		display: flex;
 		flex-direction: column;	
 		height: 100vh;
+	}
+
+	@media (prefers-reduce-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
 	}
 	
 </style>
