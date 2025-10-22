@@ -11,6 +11,7 @@ import Code from "../icons/Code.astro";
 import Project from "./Project.astro";
 import SobreMi from "./SobreMi.astro";
 import Skills from "./Skills.astro";
+import Contact from "./Contact.astro";
 ---
 
 <main>
@@ -36,6 +37,8 @@ import Skills from "./Skills.astro";
                 >Soy Desarrollador de Software</span
             > con actitud trabajadora y buena atención al detalle. Me enfoco en aprender
             continuamente y en aplicar soluciones prácticas y escalables.
+            <span class="block mt-2 text-gray-300/90">También incorporo prácticas de <strong>QA</strong> con
+            <strong>pruebas unitarias</strong> e <strong>integración</strong> (Jest/Vitest/Testing Library) para elevar la calidad del código.</span>
         </h2>
         <nav class="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-x-4 mt-8">
             <SocialPill href="https://www.linkedin.com/in/stiven-aguirre-19436b211">
@@ -78,5 +81,9 @@ import Skills from "./Skills.astro";
             Proyectos
         </h2>
         <Project />
+    </SectionContainer>
+    
+    <SectionContainer>
+        <Contact />
     </SectionContainer>
 </main>

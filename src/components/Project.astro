@@ -1,6 +1,15 @@
 ---
-import { Image } from "astro:assets";
 import SectionContainer from "./SectionContainer.astro";
+import HTMLIcon from "../icons/HTML.astro";
+import CSSIcon from "../icons/CSS.astro";
+import JavascriptIcon from "../icons/Javascript.astro";
+import ReactIcon from "../icons/React.astro";
+import NextjsIcon from "../icons/Nextjs.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+import NodejsIcon from "../icons/Nodejs.astro";
+import TypescriptIcon from "../icons/Typescript.astro";
+import MongoDBIcon from "../icons/MongoDB.astro";
+import PHPIcon from "../icons/Php.astro";
 
 const PROJECTS = [
     {
@@ -49,16 +58,38 @@ const PROJECTS = [
         link: "#",
     },
 ];
+
+const ICONS: Record<string, any> = {
+    HTML: HTMLIcon,
+    CSS: CSSIcon,
+    JavaScript: JavascriptIcon,
+    React: ReactIcon,
+    "Next.js": NextjsIcon,
+    Tailwind: TailwindIcon,
+    "Node.js": NodejsIcon,
+    TypeScript: TypescriptIcon,
+    MongoDB: MongoDBIcon,
+    PHP: PHPIcon,
+};
+
+// Precomputar proyectos con íconos para evitar componentes dinámicos inline
+const PROJECTS_WITH_ICONS = PROJECTS.map((p) => ({
+    ...p,
+    tags: p.tags.map((t) => ({ name: t, Icon: ICONS[t] || null })),
+}));
+
 ---
 
 {
-    PROJECTS.map(project => (
+    PROJECTS_WITH_ICONS.map(project => (
     <article class="block w-full max-w-3xl mx-auto mb-6 p-4 sm:p-6 rounded-xl border border-white/10 bg-white/5 hover:border-cyan-500/50 transition-colors">
             <h3 class="text-white text-lg font-semibold line-clamp-2">{project.title}</h3>
             <p class="text-gray-300 text-sm mt-2">{project.description}</p>
             <ul class="mt-3 flex flex-wrap gap-2">
-                {project.tags.map((tag, index) => (
-                    <li class="text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">{tag}</li>
+                {project.tags.map(({ name, Icon }) => (
+                    <li class="flex items-center gap-2 text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">
+                      {Icon && <Icon class="w-4 h-4 shrink-0" />} {name}
+                    </li>
                 ))}
             </ul>
             <img class="w-full aspect-video object-cover rounded-lg mt-4 bg-neutral-900/60" loading="lazy" src={project.image} alt={`Captura de pantalla del proyecto ${project.image}`} />

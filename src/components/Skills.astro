@@ -1,10 +1,57 @@
 ---
-const SKILLS: { group: string; items: string[] }[] = [
-  { group: 'Frontend', items: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'Tailwind'] },
-  { group: 'Backend', items: ['Node.js', 'TypeScript', 'Express'] },
-  { group: 'Datos', items: ['MongoDB'] },
-  { group: 'Herramientas', items: ['Git', 'GitHub', 'Astro'] },
-  { group: 'Foco actual', items: ['Fundamentos de IA', 'Integración de modelos en productos'] },
+import HTMLIcon from "../icons/HTML.astro";
+import CSSIcon from "../icons/CSS.astro";
+import JavascriptIcon from "../icons/Javascript.astro";
+import ReactIcon from "../icons/React.astro";
+import NextjsIcon from "../icons/Nextjs.astro";
+import TailwindIcon from "../icons/Tailwind.astro";
+import NodejsIcon from "../icons/Nodejs.astro";
+import TypescriptIcon from "../icons/Typescript.astro";
+import MongoDBIcon from "../icons/MongoDB.astro";
+import PostgresSQLIcon from "../icons/PostgresSQL.astro";
+import GitIcon from "../icons/Git.astro";
+import GithubIcon from "../icons/Github.astro";
+
+const SKILLS: { group: string; items: { name: string; icon: any }[] }[] = [
+  {
+    group: "Frontend",
+    items: [
+      { name: "HTML", icon: HTMLIcon },
+      { name: "CSS", icon: CSSIcon },
+      { name: "JavaScript", icon: JavascriptIcon },
+      { name: "React", icon: ReactIcon },
+      { name: "Next.js", icon: NextjsIcon },
+      { name: "Tailwind", icon: TailwindIcon },
+    ],
+  },
+  {
+    group: "Backend",
+    items: [
+      { name: "Node.js", icon: NodejsIcon },
+      { name: "TypeScript", icon: TypescriptIcon },
+    ],
+  },
+  {
+    group: "Datos",
+    items: [
+      { name: "MongoDB", icon: MongoDBIcon },
+      { name: "PostgreSQL", icon: PostgresSQLIcon },
+    ],
+  },
+  {
+    group: "Herramientas",
+    items: [
+      { name: "Git", icon: GitIcon },
+      { name: "GitHub", icon: GithubIcon },
+    ],
+  },
+  {
+    group: "Foco actual",
+    items: [
+      { name: "Fundamentos de IA", icon: null },
+      { name: "Integración de modelos en productos", icon: null },
+    ],
+  },
 ];
 ---
 
@@ -14,7 +61,9 @@ const SKILLS: { group: string; items: string[] }[] = [
       <h3 class="text-white font-semibold mb-3">{s.group}</h3>
       <ul class="flex flex-wrap gap-2">
         {s.items.map((it) => (
-          <li class="text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">{it}</li>
+          <li class="flex items-center gap-2 text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">
+            {it.icon && <it.icon class="w-4 h-4 text-current" />} {it.name}
+          </li>
         ))}
       </ul>
     </section>
