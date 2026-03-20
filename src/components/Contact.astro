@@ -1,4 +1,8 @@
-  ---
+---
+import { getTranslations } from '../i18n/translations';
+
+const lang = Astro.currentLocale ?? 'es';
+const t = getTranslations(lang).contact;
 ---
 
 <section id="contacto" class="max-w-3xl mx-auto mt-12 p-6 rounded-xl border border-white/10 bg-white/5">
@@ -7,18 +11,18 @@
 
   <form id="contact-form" class="mt-4">
     <label class="block mt-3">
-      <span class="text-gray-200 text-sm">Nombre</span>
-      <input required name="name" type="text" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder="Tu nombre" />
+      <span class="text-gray-200 text-sm">{t.nameLabel}</span>
+      <input required name="name" type="text" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder={t.namePlaceholder} />
     </label>
 
     <label class="block mt-3">
-      <span class="text-gray-200 text-sm">Email</span>
-      <input required name="email" type="email" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder="tu@ejemplo.com" />
+      <span class="text-gray-200 text-sm">{t.emailLabel}</span>
+      <input required name="email" type="email" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder={t.emailPlaceholder} />
     </label>
 
     <label class="block mt-3">
-      <span class="text-gray-200 text-sm">Mensaje</span>
-      <textarea required name="message" rows="5" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder="Cuéntame sobre el proyecto"></textarea>
+      <span class="text-gray-200 text-sm">{t.messageLabel}</span>
+      <textarea required name="message" rows="5" class="mt-1 w-full rounded-md bg-neutral-900/60 border border-white/10 px-3 py-2 text-gray-100" placeholder={t.messagePlaceholder}></textarea>
     </label>
 
     <div class="flex items-center gap-3 mt-4">

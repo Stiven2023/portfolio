@@ -11,10 +11,14 @@ import MongoDBIcon from "../icons/MongoDB.astro";
 import PostgresSQLIcon from "../icons/PostgresSQL.astro";
 import GitIcon from "../icons/Git.astro";
 import GithubIcon from "../icons/Github.astro";
+import { getTranslations } from '../i18n/translations';
+
+const lang = Astro.currentLocale ?? 'es';
+const t = getTranslations(lang).skills;
 
 const SKILLS: { group: string; items: { name: string; icon: any }[] }[] = [
   {
-    group: "Frontend",
+    group: t.groups.frontend,
     items: [
       { name: "HTML", icon: HTMLIcon },
       { name: "CSS", icon: CSSIcon },
@@ -25,31 +29,31 @@ const SKILLS: { group: string; items: { name: string; icon: any }[] }[] = [
     ],
   },
   {
-    group: "Backend",
+    group: t.groups.backend,
     items: [
       { name: "Node.js", icon: NodejsIcon },
       { name: "TypeScript", icon: TypescriptIcon },
     ],
   },
   {
-    group: "Datos",
+    group: t.groups.data,
     items: [
       { name: "MongoDB", icon: MongoDBIcon },
       { name: "PostgreSQL", icon: PostgresSQLIcon },
     ],
   },
   {
-    group: "Herramientas",
+    group: t.groups.tools,
     items: [
       { name: "Git", icon: GitIcon },
       { name: "GitHub", icon: GithubIcon },
     ],
   },
   {
-    group: "Foco actual",
+    group: t.groups.focus,
     items: [
-      { name: "Fundamentos de IA", icon: null },
-      { name: "Integración de modelos en productos", icon: null },
+      { name: t.aiFundamentals, icon: null },
+      { name: t.modelIntegration, icon: null },
     ],
   },
 ];
@@ -68,5 +72,4 @@ const SKILLS: { group: string; items: { name: string; icon: any }[] }[] = [
       </ul>
     </section>
   ))}
-  
 </div>
