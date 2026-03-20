@@ -12,6 +12,10 @@ import Project from "./Project.astro";
 import SobreMi from "./SobreMi.astro";
 import Skills from "./Skills.astro";
 import Contact from "./Contact.astro";
+import { getTranslations } from '../i18n/translations';
+
+const lang = Astro.currentLocale ?? 'es';
+const t = getTranslations(lang);
 ---
 
 <main>
@@ -19,26 +23,22 @@ import Contact from "./Contact.astro";
         <img
             class="rounded-full block mx-auto mb-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover"
             src="/yop.jpg"
-            alt="Imagen de Stiven Aguirre"
+            alt={t.hero.imgAlt}
         />
         <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-col sm:flex-row gap-y-4 sm:gap-x-4 md:gap-x-6 pb-6 sm:pb-10 items-center sm:items-center sm:justify-center text-center">
-            <span class="md:whitespace-nowrap">Hey, soy Stiven Aguirre</span>
+            <span class="md:whitespace-nowrap">{t.hero.greeting}</span>
             <a
                 class="flex justify-center items-center shrink-0"
                 href="https://www.linkedin.com/in/stiven-aguirre-19436b211"
                 target="_blank"
                 rel="noopener"
             >
-                <Badge>Disponible para trabajar</Badge>
+                <Badge>{t.hero.available}</Badge>
             </a>
         </h1>
         <h2 class="text-base sm:text-lg md:text-2xl max-w-prose mx-auto text-center sm:text-left leading-relaxed text-pretty">
-            +1 año de experiencia. <span class="text-cyan-300 font-semibold"
-                >Soy Desarrollador de Software</span
-            > con actitud trabajadora y buena atención al detalle. Me enfoco en aprender
-            continuamente y en aplicar soluciones prácticas y escalables.
-            <span class="block mt-2 text-gray-300/90">También incorporo prácticas de <strong>QA</strong> con
-            <strong>pruebas unitarias</strong> e <strong>integración</strong> (Jest/Vitest/Testing Library) para elevar la calidad del código.</span>
+            <span set:html={t.hero.subtitle} />
+            <span class="block mt-2 text-gray-300/90" set:html={t.hero.qa} />
         </h2>
         <nav class="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-x-4 mt-8">
             <SocialPill href="https://www.linkedin.com/in/stiven-aguirre-19436b211">
@@ -49,28 +49,27 @@ import Contact from "./Contact.astro";
                 <Github class="w-6 h-6" />
                 GitHub
             </SocialPill>
-            <SocialPill href="https://github.com/Stiven2023">
+            <SocialPill href="mailto:stivenalexis2005@gmail.com">
                 <Mail class="w-6 h-6" />
                 stivenalexis2005@gmail.com
             </SocialPill>
-            
         </nav>
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
-        <h2 class="text-2xl font-semibold mb-6">Sobre mí</h2>
+        <h2 class="text-2xl font-semibold mb-6">{t.about.title}</h2>
         <SobreMi />
     </SectionContainer>
 
     <SectionContainer id="habilidades" class="!py-[2.25rem] sm:!py-[3.75rem]">
-        <h2 class="text-2xl font-semibold mb-6">Habilidades</h2>
+        <h2 class="text-2xl font-semibold mb-6">{t.skills.title}</h2>
         <Skills />
     </SectionContainer>
 
     <SectionContainer id="experiencia" class="!py-[2.25rem] sm:!py-[3.75rem]">
         <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
             <Briefcase class="w-6 h-6" />
-            Experiencia Laboral
+            {t.experience.title}
         </h2>
         <Experience />
     </SectionContainer>
@@ -78,11 +77,11 @@ import Contact from "./Contact.astro";
     <SectionContainer id="proyectos" class="!py-[2.25rem] sm:!py-[3.75rem]">
         <h2 class="text-2xl font-semibold mb-6 flex gap-x-2 items-center">
             <Code class="w-6 h-6" />
-            Proyectos
+            {t.projects.title}
         </h2>
         <Project />
     </SectionContainer>
-    
+
     <SectionContainer>
         <Contact />
     </SectionContainer>
