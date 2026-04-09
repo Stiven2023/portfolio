@@ -1,9 +1,4 @@
 ---
-import Badge from "./Badge.astro";
-import Linkedin from "../icons/Linkedin.astro";
-import SocialPill from "./SocialPill.astro";
-import Github from "../icons/Github.astro";
-import Mail from "../icons/Mail.astro";
 import Briefcase from "../icons/Briefcase.astro";
 import Experience from "./Experience.astro";
 import SectionContainer from "./SectionContainer.astro";
@@ -16,44 +11,55 @@ import { getTranslations } from '../i18n/translations';
 
 const lang = Astro.currentLocale ?? 'es';
 const t = getTranslations(lang);
+const cvPath = '/CV/HOJADEVIDASTIVEN.pdf_2025_7_24.pdf_2025_8_9.pdf';
 ---
 
 <main>
     <SectionContainer>
-        <img
-            class="rounded-full block mx-auto mb-6 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover"
-            src="/yop.jpg"
-            alt={t.hero.imgAlt}
-        />
-        <h1 class="text-white text-3xl sm:text-4xl md:text-5xl font-bold flex flex-col sm:flex-row gap-y-4 sm:gap-x-4 md:gap-x-6 pb-6 sm:pb-10 items-center sm:items-center sm:justify-center text-center">
-            <span class="md:whitespace-nowrap">{t.hero.greeting}</span>
-            <a
-                class="flex justify-center items-center shrink-0"
-                href="https://www.linkedin.com/in/stiven-aguirre-19436b211"
-                target="_blank"
-                rel="noopener"
-            >
-                <Badge>{t.hero.available}</Badge>
-            </a>
+        <!-- Initials avatar -->
+        <div class="flex justify-center mb-6">
+            <div class="w-20 h-20 rounded-full bg-cyan-900/60 border border-cyan-500/30 flex items-center justify-center text-2xl font-bold text-cyan-300 select-none">
+                SA
+            </div>
+        </div>
+        <h1 class="text-white text-4xl sm:text-5xl font-bold text-center leading-tight hero-title">
+            {t.hero.greeting}
         </h1>
-        <h2 class="text-base sm:text-lg md:text-2xl max-w-prose mx-auto text-center sm:text-left leading-relaxed text-pretty">
+        <!-- Available badge below name -->
+        <div class="flex justify-center mt-3 mb-4">
+            <span class="inline-flex items-center gap-2 text-xs font-medium px-3 py-1 rounded-full bg-green-900/40 border border-green-500/30 text-green-300">
+                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                {t.hero.available}
+            </span>
+        </div>
+        <p class="text-base sm:text-lg text-gray-300 max-w-xl mx-auto text-center leading-relaxed text-pretty mt-2">
             <span set:html={t.hero.subtitle} />
-            <span class="block mt-2 text-gray-300/90" set:html={t.hero.qa} />
-        </h2>
-        <nav class="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-x-4 mt-8">
-            <SocialPill href="https://www.linkedin.com/in/stiven-aguirre-19436b211">
-                <Linkedin class="w-6 h-6" />
+        </p>
+        <!-- Primary + Secondary action buttons -->
+        <div class="hero-actions flex flex-wrap justify-center gap-3 mt-8">
+            <a
+                href="mailto:stivenalexis2005@gmail.com"
+                class="px-5 py-2.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-semibold transition-colors"
+            >
+                {lang === 'es' ? 'Escribirme' : 'Contact me'}
+            </a>
+            <a
+                href={cvPath}
+                download
+                class="px-5 py-2.5 rounded-lg border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-colors"
+            >
+                {lang === 'es' ? 'Descargar CV' : 'Download CV'}
+            </a>
+        </div>
+        <!-- Social links as subtle text -->
+        <div class="flex justify-center gap-6 mt-5 text-sm text-gray-400">
+            <a href="https://www.linkedin.com/in/stiven-aguirre-19436b211" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4 hover:text-cyan-300 transition-colors">
                 LinkedIn
-            </SocialPill>
-            <SocialPill href="https://github.com/Stiven2023">
-                <Github class="w-6 h-6" />
+            </a>
+            <a href="https://github.com/Stiven2023" target="_blank" rel="noopener" class="underline decoration-dotted underline-offset-4 hover:text-cyan-300 transition-colors">
                 GitHub
-            </SocialPill>
-            <SocialPill href="mailto:stivenalexis2005@gmail.com">
-                <Mail class="w-6 h-6" />
-                stivenalexis2005@gmail.com
-            </SocialPill>
-        </nav>
+            </a>
+        </div>
     </SectionContainer>
 
     <SectionContainer id="sobre-mi">
@@ -86,3 +92,44 @@ const t = getTranslations(lang);
         <Contact />
     </SectionContainer>
 </main>
+
+<style>
+    @media (max-width: 600px) {
+        .hero-title {
+            font-size: 24px;
+        }
+        .hero-actions {
+            flex-direction: column;
+            width: 100%;
+        }
+        .hero-actions a {
+            width: 100%;
+            text-align: center;
+        }
+    }
+</style>
+
+<script>
+    /* Micro-animations: fade-in + slide-up for each section on entry */
+    const animTargets = document.querySelectorAll<HTMLElement>('main > section');
+    animTargets.forEach((el) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    });
+
+    const animObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    (entry.target as HTMLElement).style.opacity = '1';
+                    (entry.target as HTMLElement).style.transform = 'translateY(0)';
+                    animObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.08 }
+    );
+
+    animTargets.forEach((el) => animObserver.observe(el));
+</script>
