@@ -19,7 +19,7 @@ function splitTitle(title: string): { role: string; company: string } {
   {t.items.map((item) => {
     const { role, company } = splitTitle(item.title);
     return (
-      <article class="rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 hover:border-white/20 transition-colors" style="border-width: 0.5px; border-radius: 12px;">
+      <article class="rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 hover:border-white/20 transition-colors experience-card">
         <div class="flex justify-between items-start gap-4 flex-wrap">
           <div>
             <h3 class="text-white font-semibold text-base">{role}</h3>
@@ -32,3 +32,9 @@ function splitTitle(title: string): { role: string; company: string } {
     );
   })}
 </div>
+
+<style>
+  .experience-card {
+    border-width: 0.5px;
+  }
+</style>

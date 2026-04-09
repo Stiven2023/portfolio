@@ -45,6 +45,8 @@ const h = t.header;
                 }
             });
         },
+        // -40% top: ignore top 40% so nav highlight triggers mid-scroll;
+        // -50% bottom: section must occupy at least 10% of viewport to activate
         { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
     );
 
