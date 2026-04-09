@@ -3,7 +3,7 @@ export const TRANSLATIONS = {
     layout: {
       title: 'Portfolio Stiven Aguirre - Desarrollador y Programador de Software',
       description:
-        'Contrata a Stiven Aguirre, un desarrollador de software con experiencia en la creación de aplicaciones web y soluciones innovadoras.',
+        'Contrata a Stiven Aguirre, desarrollador de software especializado en construir aplicaciones web robustas y soluciones digitales de alto impacto.',
       lang: 'es',
     },
     header: {
@@ -20,18 +20,18 @@ export const TRANSLATIONS = {
       greeting: 'Hey, soy Stiven Aguirre',
       available: 'Disponible para trabajar',
       subtitle:
-        '+1 año de experiencia. <span class="text-cyan-300 font-semibold">Soy Desarrollador de Software</span> con actitud trabajadora y buena atención al detalle. Me enfoco en aprender continuamente y en aplicar soluciones prácticas y escalables.',
+        '+1 año de experiencia. <span class="text-cyan-300 font-semibold">Soy Desarrollador de Software</span> comprometido con la calidad del código, el aprendizaje continuo y la entrega de soluciones escalables que generan valor real.',
       qa: 'También incorporo prácticas de <strong>QA</strong> con <strong>pruebas unitarias</strong> e <strong>integración</strong> (Jest/Vitest/Testing Library) para elevar la calidad del código.',
       imgAlt: 'Imagen de Stiven Aguirre',
     },
     about: {
       title: 'Sobre mí',
       intro:
-        'Soy colombiano, con <span class="text-cyan-300 font-semibold">1 año de experiencia</span> construyendo productos web end‑to‑end. Me gusta convertir ideas en interfaces claras, rápidas y accesibles. Actualmente me enfoco en <span class="text-violet-300 font-semibold">inteligencia artificial</span> aplicada a problemas reales.',
+        'Soy colombiano, con <span class="text-cyan-300 font-semibold">1 año de experiencia</span> desarrollando productos web end‑to‑end. Transformo ideas en interfaces claras, rápidas y accesibles que generan impacto. Actualmente profundizo en <span class="text-violet-300 font-semibold">inteligencia artificial</span> aplicada a problemas del mundo real.',
       strengthLabel: 'Fortaleza:',
-      strengthValue: 'diseñar sistemas simples que escalan',
-      workStyle: 'Trabajo: comunicación clara y entregas frecuentes.',
-      value: 'Valor: pragmatismo, mejora continua y cuidado por el detalle.',
+      strengthValue: 'crear soluciones que simplifican el trabajo y escalan con el negocio',
+      workStyle: 'Metodología: comunicación transparente, colaboración efectiva y entregas iterativas de valor.',
+      value: 'Propuesta de valor: pragmatismo orientado a resultados, mejora continua y atención meticulosa al detalle.',
       qa: 'QA: diseño de casos de prueba, y pruebas <strong>unitarias</strong>/<strong>integración</strong> con Jest/Vitest/Testing Library.',
     },
     skills: {
@@ -71,7 +71,7 @@ export const TRANSLATIONS = {
         {
           title: 'Página Web para Fundación "Lectores a la Hamaca"',
           description:
-            'Colaboré en el diseño y desarrollo de la web de la fundación. UI, interactividad y optimización de rendimiento para comunicar iniciativas y conectar con su audiencia.',
+            'Participé en el diseño y desarrollo de la plataforma web de la fundación, enfocándome en la experiencia de usuario, la interactividad y la optimización del rendimiento para comunicar sus iniciativas y ampliar su alcance.',
           tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
           github: '#',
           image: 'projects/lectores-hamaca.webp',
@@ -80,7 +80,7 @@ export const TRANSLATIONS = {
         {
           title: 'Red social Cookie',
           description:
-            'Trabajo en equipo: UI, funcionalidades interactivas y sistema de chats en tiempo real. Enfoque de accesibilidad para personas con discapacidades auditivas y/o visuales.',
+            'Desarrollé en equipo la UI, funcionalidades interactivas y un sistema de chats en tiempo real, con especial énfasis en accesibilidad para personas con discapacidad auditiva y/o visual.',
           tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'MongoDB', 'Node.js', 'TypeScript'],
           github: '#',
           image: 'projects/cookie.webp',
@@ -133,7 +133,7 @@ export const TRANSLATIONS = {
     layout: {
       title: 'Stiven Aguirre Portfolio - Software Developer & Programmer',
       description:
-        'Hire Stiven Aguirre, a software developer with experience building web applications and innovative solutions.',
+        'Hire Stiven Aguirre, a software developer specialising in building robust web applications and high-impact digital solutions.',
       lang: 'en',
     },
     header: {
@@ -150,18 +150,18 @@ export const TRANSLATIONS = {
       greeting: "Hey, I'm Stiven Aguirre",
       available: 'Available to work',
       subtitle:
-        '+1 year of experience. <span class="text-cyan-300 font-semibold">I\'m a Software Developer</span> with a hardworking attitude and great attention to detail. I focus on continuous learning and applying practical, scalable solutions.',
+        '+1 year of experience. <span class="text-cyan-300 font-semibold">I\'m a Software Developer</span> committed to code quality, continuous learning, and delivering scalable solutions that create real value.',
       qa: 'I also incorporate <strong>QA</strong> practices with <strong>unit</strong> and <strong>integration</strong> testing (Jest/Vitest/Testing Library) to raise code quality.',
       imgAlt: 'Image of Stiven Aguirre',
     },
     about: {
       title: 'About me',
       intro:
-        'I\'m Colombian, with <span class="text-cyan-300 font-semibold">1 year of experience</span> building end‑to‑end web products. I enjoy turning ideas into clear, fast and accessible interfaces. I\'m currently focused on <span class="text-violet-300 font-semibold">artificial intelligence</span> applied to real-world problems.',
+        'I\'m Colombian, with <span class="text-cyan-300 font-semibold">1 year of experience</span> building end‑to‑end web products. I transform ideas into clear, fast, and accessible interfaces that deliver real impact. I\'m currently deepening my expertise in <span class="text-violet-300 font-semibold">artificial intelligence</span> applied to real-world challenges.',
       strengthLabel: 'Strength:',
-      strengthValue: 'designing simple systems that scale',
-      workStyle: 'Work style: clear communication and frequent deliveries.',
-      value: 'Value: pragmatism, continuous improvement and attention to detail.',
+      strengthValue: 'crafting solutions that simplify workflows and scale with the business',
+      workStyle: 'Work style: transparent communication, effective collaboration, and iterative value delivery.',
+      value: 'Value proposition: results-driven pragmatism, continuous improvement, and meticulous attention to detail.',
       qa: 'QA: test case design, and <strong>unit</strong>/<strong>integration</strong> testing with Jest/Vitest/Testing Library.',
     },
     skills: {
@@ -201,7 +201,7 @@ export const TRANSLATIONS = {
         {
           title: '"Lectores a la Hamaca" Foundation Website',
           description:
-            "Collaborated on the design and development of the foundation's website. UI, interactivity and performance optimisation to communicate initiatives and connect with their audience.",
+            "Contributed to the design and development of the foundation's website, focusing on UX, interactivity, and performance optimisation to effectively communicate their initiatives and expand their reach.",
           tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
           github: '#',
           image: 'projects/lectores-hamaca.webp',
@@ -210,7 +210,7 @@ export const TRANSLATIONS = {
         {
           title: 'Cookie Social Network',
           description:
-            'Teamwork: UI, interactive features and a real-time chat system. Accessibility focus for people with hearing and/or visual disabilities.',
+            'Collaborated on the UI, interactive features, and real-time chat system, with a strong emphasis on accessibility for users with hearing and/or visual impairments.',
           tags: ['HTML', 'CSS', 'JavaScript', 'React', 'Next.js', 'MongoDB', 'Node.js', 'TypeScript'],
           github: '#',
           image: 'projects/cookie.webp',
