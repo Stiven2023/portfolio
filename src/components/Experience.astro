@@ -1,21 +1,40 @@
 ---
-import ExperienceItem from './ExperienceItem.astro';
 import { getTranslations } from '../i18n/translations';
 
 const lang = Astro.currentLocale ?? 'es';
 const t = getTranslations(lang).experience;
+
+// Extract role and company from title (format: "Role — Company")
+function splitTitle(title: string): { role: string; company: string } {
+    const sep = title.includes(' — ') ? ' — ' : (title.includes(' - ') ? ' - ' : null);
+    if (sep) {
+        const idx = title.indexOf(sep);
+        return { role: title.slice(0, idx).trim(), company: title.slice(idx + sep.length).trim() };
+    }
+    return { role: title, company: '' };
+}
 ---
 
-<ol class="relative lg:border-s lg:border-gray-200 dark:lg:border-gray-700 space-y-8 lg:space-y-0 lg:pl-6 max-w-3xl mx-auto px-2 sm:px-0">
-  {
-    t.items.map((experience, idx) => (
-      <li class="mb-6 lg:mb-10 lg:ms-4">
-        <ExperienceItem
-          {...experience}
-          learnMore={t.learnMore}
-          index={idx}
-        />
-      </li>
-    ))
+<div class="space-y-4 max-w-3xl mx-auto">
+  {t.items.map((item) => {
+    const { role, company } = splitTitle(item.title);
+    return (
+      <article class="rounded-xl border border-white/[0.07] bg-white/[0.03] p-5 hover:border-white/20 transition-colors experience-card">
+        <div class="flex justify-between items-start gap-4 flex-wrap">
+          <div>
+            <h3 class="text-white font-semibold text-base">{role}</h3>
+            {company && <p class="text-cyan-400 text-sm mt-0.5">{company}</p>}
+          </div>
+          <time class="text-gray-500 text-xs shrink-0 mt-0.5">{item.date}</time>
+        </div>
+        <p class="text-gray-300 text-sm mt-3 leading-relaxed line-clamp-3">{item.description}</p>
+      </article>
+    );
+  })}
+</div>
+
+<style>
+  .experience-card {
+    border-width: 0.5px;
   }
-</ol>
+</style>

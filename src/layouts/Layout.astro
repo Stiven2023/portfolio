@@ -7,6 +7,7 @@ import { getTranslations } from '../i18n/translations';
 
 const lang = Astro.currentLocale ?? 'es';
 const t = getTranslations(lang);
+const canonicalURL = 'https://www.portafoliostivenaguirre.org/';
 ---
 
 <!doctype html>
@@ -18,6 +19,13 @@ const t = getTranslations(lang);
 		<meta name="generator" content={Astro.generator} />
 		<title>{t.layout.title}</title>
 		<meta name="description" content={t.layout.description} />
+		<link rel="canonical" href={canonicalURL} />
+		<!-- Open Graph -->
+		<meta property="og:title" content={t.layout.title} />
+		<meta property="og:description" content={t.layout.description} />
+		<meta property="og:image" content={`${canonicalURL}yop.jpg`} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
 	</head>
 	<body>
 		<Header />

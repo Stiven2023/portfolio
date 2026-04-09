@@ -16,60 +16,35 @@ import { getTranslations } from '../i18n/translations';
 const lang = Astro.currentLocale ?? 'es';
 const t = getTranslations(lang).skills;
 
-const SKILLS: { group: string; items: { name: string; icon: any }[] }[] = [
-  {
-    group: t.groups.frontend,
-    items: [
-      { name: "HTML", icon: HTMLIcon },
-      { name: "CSS", icon: CSSIcon },
-      { name: "JavaScript", icon: JavascriptIcon },
-      { name: "React", icon: ReactIcon },
-      { name: "Next.js", icon: NextjsIcon },
-      { name: "Tailwind", icon: TailwindIcon },
-    ],
-  },
-  {
-    group: t.groups.backend,
-    items: [
-      { name: "Node.js", icon: NodejsIcon },
-      { name: "TypeScript", icon: TypescriptIcon },
-    ],
-  },
-  {
-    group: t.groups.data,
-    items: [
-      { name: "MongoDB", icon: MongoDBIcon },
-      { name: "PostgreSQL", icon: PostgresSQLIcon },
-    ],
-  },
-  {
-    group: t.groups.tools,
-    items: [
-      { name: "Git", icon: GitIcon },
-      { name: "GitHub", icon: GithubIcon },
-    ],
-  },
-  {
-    group: t.groups.focus,
-    items: [
-      { name: t.aiFundamentals, icon: null },
-      { name: t.modelIntegration, icon: null },
-    ],
-  },
+const PRIMARY_SKILLS = new Set(['React', 'Next.js', 'TypeScript', 'Node.js']);
+
+const ALL_SKILLS: { name: string; icon: any }[] = [
+  { name: "React", icon: ReactIcon },
+  { name: "Next.js", icon: NextjsIcon },
+  { name: "TypeScript", icon: TypescriptIcon },
+  { name: "Node.js", icon: NodejsIcon },
+  { name: "HTML", icon: HTMLIcon },
+  { name: "CSS", icon: CSSIcon },
+  { name: "JavaScript", icon: JavascriptIcon },
+  { name: "Tailwind", icon: TailwindIcon },
+  { name: "MongoDB", icon: MongoDBIcon },
+  { name: "PostgreSQL", icon: PostgresSQLIcon },
+  { name: "Git", icon: GitIcon },
+  { name: "GitHub", icon: GithubIcon },
+  { name: t.aiFundamentals, icon: null },
+  { name: t.modelIntegration, icon: null },
 ];
 ---
 
-<div class="grid gap-6 sm:grid-cols-2">
-  {SKILLS.map((s) => (
-    <section class="rounded-xl border border-white/10 bg-white/5 p-4">
-      <h3 class="text-white font-semibold mb-3">{s.group}</h3>
-      <ul class="flex flex-wrap gap-2">
-        {s.items.map((it) => (
-          <li class="flex items-center gap-2 text-xs px-2 py-1 rounded border border-white/10 bg-neutral-900/60 text-gray-200">
-            {it.icon && <it.icon class="w-4 h-4 text-current" />} {it.name}
-          </li>
-        ))}
-      </ul>
-    </section>
+<ul class="grid gap-2" style="grid-template-columns: repeat(auto-fill, minmax(100px, 1fr))">
+  {ALL_SKILLS.map((skill) => (
+    <li class={`flex items-center gap-2 text-xs px-3 py-1.5 rounded border font-medium ${
+      PRIMARY_SKILLS.has(skill.name)
+        ? 'bg-[#E6F1FB]/10 border-[#185FA5]/50 text-[#7CC2F7]'
+        : 'bg-neutral-900/60 border-white/10 text-gray-300'
+    }`}>
+      {skill.icon && <skill.icon class="w-4 h-4 shrink-0" />}
+      <span class="truncate">{skill.name}</span>
+    </li>
   ))}
-</div>
+</ul>
